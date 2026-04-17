@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>韩语背词网站</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>韩语背词网站</h1>
+            <p>导入词书，开始背诵</p>
+        </header>
+        
+        <main>
+            <!-- 导入单词区域 -->
+            <section class="import-section">
+                <h2>导入单词</h2>
+                <div class="book-selection">
+                    <label for="bookSelect">选择词书：</label>
+                    <select id="bookSelect">
+                        <option value="默认词书">默认词书</option>
+                    </select>
+                    <button id="addBookBtn">添加词书</button>
+                </div>
+                <textarea id="wordInput" placeholder="请输入单词，格式：韩文,中文,发音（每行一个）"></textarea>
+                <button id="importBtn">导入</button>
+                <p class="hint">例如：안녕하세요,你好,an-nyeong-ha-se-yo</p>
+                
+                <h3>跨设备同步</h3>
+                <div class="sync-section">
+                    <button id="exportBtn">导出单词</button>
+                    <input type="file" id="fileInput" accept=".json" style="display: none;">
+                    <button id="importFileBtn">导入文件</button>
+                    <button id="syncBtn">自动同步</button>
+                    <p class="hint">导出单词为JSON文件，然后在其他设备上导入以实现同步</p>
+                    <p class="hint">点击"自动同步"按钮可以生成一个同步链接，在其他设备上打开该链接即可同步单词</p>
+                </div>
+            </section>
+            
+            <!-- 词书管理区域 -->
+            <section class="book-section">
+                <h2>词书管理</h2>
+                <div id="bookList"></div>
+            </section>
+            
+            <!-- 单词背诵区域 -->
+            <section class="study-section">
+                <h2>单词背诵</h2>
+                <div class="word-card">
+                    <div class="word-front">
+                        <h3 id="koreanWord"></h3>
+                        <button class="play-btn" id="playBtn">▶️</button>
+                    </div>
+                    <div class="word-back">
+                        <p id="chineseMeaning"></p>
+                        <p id="pronunciation"></p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button id="prevBtn">上一个</button>
+                    <button id="showBtn">显示答案</button>
+                    <button id="nextBtn">下一个</button>
+                </div>
+            </section>
+            
+            <!-- 单词列表区域 -->
+            <section class="list-section">
+                <h2>单词列表</h2>
+                <div id="wordList"></div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2026 韩语背词网站</p>
+        </footer>
+    </div>
+    
+    <script src="words.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
